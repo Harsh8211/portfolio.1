@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio for Lakshya</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        :root {
+            --lighting-color: #10b5ec;
+            --dark-color: #021a29;
+            --darker-color: #1d75ac;
+            --secondary-color: #e9da0d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body,
+        html {
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+            color: white;
+        }
+
+        body {
+            font-size: 1.4rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(9, 223, 205);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--lighting-color);
+        }
+
+        section {
+            scroll-margin-top: 50px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav li {
+            font-size: 1.8rem;
+            border-bottom: 0.4rem transparent solid;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav li:hover {
+            border-bottom: 0.4rem var(--secondary-color) solid;
+            transition: 0.3s ease-in-out;
+        }
+
+        .logo {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #e9820d;
+        }
+
+        #home {
+            background: var(--dark-color);
+            padding: 4rem 0;
+            border-bottom: 4px solid;
+            max-height: 100vh;
+        }
+
+        #home .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .hero_content {
+            display: grid;
+            place-items: center;
+        }
+
+        #home h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hi_text {
+            font-size: 6rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .name_text {
+            font-size: 5rem;
+        }
+
+        #pk {
+            border-radius: 50%;
+            height: 320px;
+        }
+
+        .pk-img {
+            border-radius: 50%;
+            height: 320px;
+            transition: transform 2s ease-in-out;
+        }
+
+        .pk-img:hover {
+            transform: scale(1.05);
+        }
+
+        #home h2 {
+            font-size: 4rem;
+            font-weight: bold;
+            overflow: hidden;
+            border-right: 0.15em solid rgb(204, 136, 11);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 5s steps(50, end), blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: orange;
+            }
+        }
+
+        /* Project Section */
+        #project {
+            background: var(--darker-color);
+        }
+
+        #project h2 {
+            font-size: 6rem;
+            text-align: center;
+            padding: 2rem 0;
+            color: #e9820d;
+        }
+
+        .project_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid_item {
+            display: grid;
+            place-items: center;
+        }
+
+        .card {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transition: 1s ease-in-out;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+            opacity: 0.8;
+        }
+
+        .card:hover .card_content {
+            background: white;
+            color: var(--dark-color);
+            transform: translateY(0px);
+        }
+
+        .card_content {
+            padding: 2rem;
+            position: relative;
+            top: -6.5rem;
+            margin-bottom: -6.5rem;
+            transition: 0.5s ease-in-out;
+            transform: translateY(100px);
+        }
+
+        .card_content h3 {
+            text-align: center;
+            color: #e9820d;
+        }
+
+        /* Certificates Section */
+        #certificates {
+            background: var(--dark-color);
+            padding: 4rem 0;
+        }
+
+        #certificates h2 {
+            font-size: 6rem;
+            text-align: center;
+            padding: 2rem 0;
+            color: #e9820d;
+        }
+
+        .certificates_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate_item {
+            display: grid;
+            place-items: center;
+        }
+
+        .certificate_card {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: 0.2s ease-in-out;
+        }
+
+        .certificate_card:hover {
+            transform: scale(1.05);
+            transition: 1s ease-in-out;
+        }
+
+        .certificate_card:hover img {
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+            opacity: 0.8;
+        }
+
+        .certificate_card:hover .certificate_content {
+            background: white;
+            color: var(--dark-color);
+            transform: translateY(0px);
+        }
+
+        .certificate_content {
+            padding: 2rem;
+            position: relative;
+            top: -6.5rem;
+            margin-bottom: -6.5rem;
+            transition: 0.5s ease-in-out;
+            transform: translateY(100px);
+        }
+
+        .certificate_content h3 {
+            text-align: center;
+            color: #e9820d;
+        }
+
+        .certificate_content a {
+            text-align: center;
+            font-size: 1.6rem;
+            color: var(--lighting-color);
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .certificate_content a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--dark-color);
+        }
+
+        #contact h2 {
+            font-size: 6rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #e9820d;
+        }
+
+        #contact .container {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            justify-content: center;
+        }
+
+        .top_contact {
+            max-width: 800px;
+            display: grid;
+            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        }
+
+        .contact_way {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .contact_way i {
+            font-size: 3rem;
+        }
+
+        .contact_way h3 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .bottom_contact {
+            max-width: 400px;
+            gap: 1rem;
+            display: grid;
+            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        }
+
+        /* Footer */
+        footer {
+            background: rgb(2, 82, 82);
+            padding: 2rem;
+            color: rgb(1, 2, 2);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        /* Media Query */
+        @media (max-width: 786px) {
+            html {
+                font-size: 40%;
+            }
+
+            #home.container {
+                flex-direction: column;
+            }
+
+            .hero_image {
+                display: grid;
+                place-items: center;
+            }
+
+            #contact .container {
+                height: 70vh;
+            }
+        }
+
+        @media (max-width: 500px) {
+            html {
+                font-size: 32%;
+            }
+
+            #home .container {
+                flex-direction: column;
+            }
+
+            .hero_image {
+                display: grid;
+                place-items: center;
+            }
+
+            #contact .container {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Portfolio</div>
+            <ul>
+                <a href="#home">
+                    <li id="a">ABOUT</li>
+                </a>
+                <a href="#project">
+                    <li id="a">Projects</li>
+                </a>
+                <a href="#certificates">
+                    <li id="a">Certificates</li>
+                </a>
+                <a href="#contact">
+                    <li id="a">Contact</li>
+                </a>
+                <a href="resume.html">
+                    <li id="a">Resume</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="container">
+                <div class="hero_image animate_animated animate_bounceInLeft">
+                    <img class="pk-img" src="harshit.jpg" alt="harshikumar" />
+                </div>
+                <div class="hero_content">
+                    <h1>HI, I am Harshit Kumar </h1>
+                    <h3>Frontend Developer. </h3>
+                   
+            </div>
+        </section>
+
+        <section id="project">
+            <h2>PROJECTS</h2>
+            <div class="container">
+                <div class="project_container">
+                    <div class="grid_item">
+                        <div class="card">
+                            <img class="pk-img" src="1234.jpg" alt="Tribute Website" />
+                            <a href="/Project 1/index.html">
+                                <div class="card_content">
+                                    <h3>Tribute Website</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid_item">
+                        <div class="card">
+                            <img class="pk-img" src="12345.jpg" alt="Job Application" />
+                            <a href="/Project 2/index.html">
+                                <div class="card_content">
+                                    <h3>Job Application</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid_item">
+                        <div class="card">
+                            <img class="pk-img" src="123456.jpg" alt="Online Shopping Cart" />
+                            <a href="/Project 3/index.html">
+                                <div class="card_content">
+                                    <h3>Parallax Website</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h2>Certificates</h2>
+            <div class="container">
+                <div class="certificates_container">
+                    <div class="certificate_item">
+                        <div class="certificate_card">
+                            <img class="certificate-img" src="45678.jpg" alt="Certificate 1" />
+                            <div class="certificate_content">
+                                <h3>PYTHON</h3>
+                                <a href="file:///C:/Users/phars/OneDrive/Documents/Harshit%20Certificates/Certificate%20DA.pdf" target="_blank">View Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="certificate_item">
+                        <div class="certificate_card">
+                            <img class="certificate-img" src="4567891.jpg" alt="Certificate 2" />
+                            <div class="certificate_content">
+                                <h3>IBM</h3>
+                                <a href="file:///C:/Users/phars/OneDrive/Documents/Harshit%20Certificates/E-Certificate(Harshit%20kumar_Bca2023698).pdf" target="_blank">View Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="certificate_item">
+                        <div class="certificate_card">
+                            <img class="certificate-img" src="12.jpg" alt="Certificate 2" />
+                            <div class="certificate_content">
+                                <h3>PY-WAR</h3>
+                                <a href="file:///C:/Users/phars/OneDrive/Documents/Harshit%20Certificates/Certificate%20DA.pdf" target="_blank">View Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="container">
+                <div class="top_contact">
+                    <div class="contact_way">
+                        <i class="fa fa-envelope"></i>
+                        <h3>Email:pharshuu11jul@gmail.com</h3><br>
+                    </div>
+                    <div class="contact_way">
+                        <i class="fa fa-phone"></i><br><br><Br
+                        <h3>Phone:812625XXXXX</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2>Let's work together...</h2>
+                <div class="top_contact">
+                    <div class="contact_way">
+
+                        <h3><a href="https://www.linkedin.com/in/harshit-kumar-584473288">Linkdin</a></h3>
+                    </div>
+                    <div class="contact_way">
+
+                        <h3><a href="https://www.instagram.com/harshuu_012_?igsh=OGQ5ZDc2ODk2ZA==">Instagram</a>
+                        </h3>
+                    </div>
+
+                    <div class="bottom_contact">
+                        <div class="contact_way">
+
+                            <h3><a href="https://github.com/Harsh8211/harshit.gi">Github
+                                </a></h3>
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>© 2025 Harshit</p>
+    </footer>
+</body>
+
+</html>
